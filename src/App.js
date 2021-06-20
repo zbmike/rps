@@ -4,22 +4,33 @@ import scissors from "./assets/Scissors.svg";
 import { useState } from "react";
 
 import Modal from './components/modal';
+import { requestRps } from './api/rps';
 
 function App() {
   const [modal, setModal] = useState(false);
   const [bet, setBet] = useState("");
   const [loading, setLoading] = useState(false);
+  const [curbChoice, setCurbChoice] = useState("");
 
-  const handleClick = (choice) => () => {
+  const handleClick = (choice) => async () => {
+    setLoading(true);
     setBet(choice);
     setModal(true);
+    const data = await requestRps();
+    if (data.body) {
+      setCurbChoice(data.body);
+    }
+    setLoading(false);
+  }
 
-    // Todo
+  const reset = () => {
+    setBet("");
+    setCurbChoice("");
   }
 
   return (
     <div className="App">
-      {modal && (<Modal setModal={setModal} bet={bet} loading={loading}/>)}
+      {modal && (<Modal setModal={setModal} bet={bet} loading={loading} curbChoice={curbChoice} reset={reset} />)}
       <h1 className="title">ROCK – PAPER – SCISSORS</h1>
       <p className="description">
         Rock Paper Scissors is a zero sum game that is usually played by two
