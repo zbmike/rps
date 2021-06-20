@@ -1,0 +1,265 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  width: 738px;
+  height: 61px;
+  text-align: left;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0px;
+  color: #36006c;
+  font-size: 50px;
+}
+
+.description {
+  width: 754px;
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  line-height: 32px;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 0.54;
+  font-size: 21px;
+  margin: 43px 0 0 0;
+}
+
+.select-text {
+  width: 197px;
+  text-align: left;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0px;
+  color: #000000;
+  font-size: 21px;
+  margin: 35px 0 0 0;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  margin: 41px 0 0 0;
+}
+
+.button {
+  width: 240px;
+  height: 273px;
+  border-radius: 5px;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+  background: #f8f8f8 0% 0% no-repeat padding-box;
+}
+
+.button-image {
+  width: 64px;
+}
+
+.button-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  margin: 26px 0 33px 0;
+  color: #36006c;
+}
+
+.modal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.72);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.modal {
+  position: relative;
+  width: 879px;
+  height: 492px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 40px #0000001a;
+  border-radius: 5px;
+  opacity: 1;
+  z-index: 10;
+}
+
+.modal.modal-result {
+  width: 492px;
+  height: 591px;
+}
+
+.modal-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  margin: 81px 0 0 0;
+  letter-spacing: 0px;
+  color: #36006c;
+  text-align: center;
+}
+
+.modal-sub {
+  font-family: "Roboto", sans-serif;
+  font-size: 21px;
+  text-align: center;
+  margin: 18px 0 0 0;
+}
+
+.modal-close {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  cursor: pointer;
+}
+
+.modal-button-container {
+  display:flex;
+  justify-content: center;
+}
+
+.modal-ok-button {
+  width: 352px;
+  height: 73px;
+  background: #36006c 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  opacity: 1;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  margin: 61px 0 0 0;
+}
+
+.bet-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.bet-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bet-image {
+  height: 138px;
+  margin: 88px 0 0 0;
+}
+
+.bet-curb-image {
+  height: 161px;
+  margin: 88px 0 0 0;
+}
+
+.bet-text {
+  font-family: "Montserrat", sans-serif;
+  line-height: 32px;
+  font-size: 21px;
+  color: #36006c;
+  margin: 52px 0 0 0;
+}
+
+.bet-loading {
+  margin: 140px 0 0 0;
+}
+
+.bet-curb {
+  margin: 130px 0 0 0;
+}
+
+.dot-pulse {
+  position: relative;
+  left: -9999px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9880ff;
+  color: #9880ff;
+  box-shadow: 9999px 0 0 -5px #9880ff;
+  animation: dotPulse 1.5s infinite linear;
+  animation-delay: 0.25s;
+}
+
+.dot-pulse::before,
+.dot-pulse::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9880ff;
+  color: #9880ff;
+}
+
+.dot-pulse::before {
+  box-shadow: 9984px 0 0 -5px #9880ff;
+  animation: dotPulseBefore 1.5s infinite linear;
+  animation-delay: 0s;
+}
+
+.dot-pulse::after {
+  box-shadow: 10014px 0 0 -5px #9880ff;
+  animation: dotPulseAfter 1.5s infinite linear;
+  animation-delay: 0.5s;
+}
+
+@keyframes dotPulseBefore {
+  0% {
+    box-shadow: 9984px 0 0 -5px #9880ff;
+  }
+  30% {
+    box-shadow: 9984px 0 0 2px #9880ff;
+  }
+  60%,
+  100% {
+    box-shadow: 9984px 0 0 -5px #9880ff;
+  }
+}
+
+@keyframes dotPulse {
+  0% {
+    box-shadow: 9999px 0 0 -5px #9880ff;
+  }
+  30% {
+    box-shadow: 9999px 0 0 2px #9880ff;
+  }
+  60%,
+  100% {
+    box-shadow: 9999px 0 0 -5px #9880ff;
+  }
+}
+
+@keyframes dotPulseAfter {
+  0% {
+    box-shadow: 10014px 0 0 -5px #9880ff;
+  }
+  30% {
+    box-shadow: 10014px 0 0 2px #9880ff;
+  }
+  60%,
+  100% {
+    box-shadow: 10014px 0 0 -5px #9880ff;
+  }
+}
